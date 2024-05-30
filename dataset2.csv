@@ -1,0 +1,21 @@
+employee_id,department_id,name,age,gender,salary,hire_date
+140,101,Rahul Tripathi,30,Male,50000,01-01-2015
+141,101,Gouher Sultana,25,Female,45000,15-02-2016
+142,102,Aiden Markram,35,Male,55000,01-05-2014
+143,102,Saima Thakor,28,Female,48000,30-09-2017
+144,103,Mayank Agarwal ,40,Male,60000,01-04-2013
+145,103,Poonam Khemnar,32,Female,52000,01-07-2018
+146,101,Heinrich Klaasen,42,Male,70000,15-03-2012
+147,102,Tahlia McGrath,29,Female,51000,01-10-2019
+148,103,Abhishek Sharma,33,Male,58000,01-06-2016
+149,104,Sophie Ecclestone,27,Female,47000,01-08-2018
+150,104,Umran Malik,38,Male,65000,01-11-2015
+151,105,Shweta Sehrawat,31,Female,54000,15-02-2017
+152,106,Jaydev Unadkat,45,Male,75000,01-07-2011
+153,107,Soppadhandi Yashasri,26,Female,46000,01-01-2019
+154,106,Akash Maharaj Singh,37,Male,63000,30-09-2014
+155,107, Parshavi Chopra,30,Female,49000,01-04-2018
+156,105,Pat Cummins,34,Male,57000,15-03-2016
+157,104,Rajeshwari Gayakwad,29,Female,50000,01-06-2017
+158,103,Nitish Reddy,36,Male,62000,01-08-2015
+159,102,Alyssa Healy,32,Female,53000,01-11-2019
