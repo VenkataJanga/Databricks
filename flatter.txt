@@ -1,0 +1,42 @@
+from pyspark.sql.types import *
+from pyspark.sql.functions import explode_outer,col
+def getFlatten_json(df):
+
+    """
+    Flattens a DataFrame with complex nested fields (Arrays and Structs) by converting them into individual columns.
+   
+    Parameters:
+    - df: The input DataFrame with complex nested fields
+   
+    Returns:
+    - The flattened DataFrame with all complex fields expanded into separate columns.
+   """
+   # compute Complex Fields (Lists and Structs) in Schema   
+    complex_fields = dict([(field.name, field.dataType)
+                             for field in df.schema.fields
+                             if type(field.dataType) == ArrayType or  type(field.dataType) == StructType])
+    print("@@@@@@@@@@@@@@@@@@DEFINES THE FieldType@@@@@@@@@@@@@@@@@@@@@@@")
+    print(complex_fields)
+    print("#############################################")
+    print(df.printSchema())
+    print("#############################################")
+    while len(complex_fields)!=0:
+      col_name=list(complex_fields.keys())[0]
+      print ("Name of the columns :"+col_name+" Type of the Column : "+str(type(complex_fields[col_name])))
+    
+      # if StructType then convert all sub element to columns.
+      # i.e. flatten structs
+      if (type(complex_fields[col_name]) == StructType):
+         expanded = [col(col_name+'.'+s).alias(col_name+'_'+s) for s in [ n.name for n in  complex_fields[col_name]]]
+         df=df.select("*", *expanded).drop(col_name)
+    
+      # if ArrayType then add the Array Elements as Rows using the explode function
+      # i.e. explode Arrays
+      elif (type(complex_fields[col_name]) == ArrayType):    
+         df=df.withColumn(col_name,explode_outer(col_name))
+    
+      # recompute remaining Complex Fields in Schema       
+      complex_fields = dict([(field.name, field.dataType)
+                             for field in df.schema.fields
+                             if type(field.dataType) == ArrayType or  type(field.dataType) == StructType])
+    return df
