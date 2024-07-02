@@ -1,0 +1,4 @@
+InputFile,InputContainer,InputDirectory,OutputFile,OutputContainer,Outputdirectory,SqlSchema,SqlTable,flag,copytodatalakestatus
+Employee.csv,inputcontainer,inputdirectory,Employee.csv,outputcontainer,outputdirectory_lookup,ado,Employee_lookup,1,status
+Department.csv,inputcontainer,inputdirectory,Department.csv,outputcontainer,outputdirectory_lookup1,ado,Department_lookup,1,status
+Sample_Data.csv,inputcontainer,inputdirectory,Sample_Data.csv,outputcontainer,outputdirectory_lookup2,ado,Sample_Data_lookup,0,status
